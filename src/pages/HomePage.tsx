@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion';
+import { Github } from "lucide-react";
 
 const containerVariants = {
   hidden: {},
@@ -43,16 +44,35 @@ const HomePage: React.FC = () => {
           practices built-in.
         </motion.p>
 
-        {/* GitHub Button */}
-        <motion.a
-          href="https://github.com/last-brain-cell/vite-react-template"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block my-4 text-sm text-indigo-600 hover:underline font-medium"
-          variants={itemVariants}
-        >
-          ⭐️ View on GitHub → Clone & build your own
-        </motion.a>
+        <div className={"flex flex-row justify-center items-center gap-4"}>
+          {/* GitHub Button */}
+          <motion.a
+            href="https://github.com/last-brain-cell/vite-react-template"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block my-4 hover:underline"
+            variants={itemVariants}
+          >
+            <button className="flex items-center gap-2 border rounded">
+              <Github className={"w-6 h-6"} />
+            </button>
+          </motion.a>
+
+          {/* Vercel Deploy Button */}
+          <motion.a
+            href="https://vercel.com/new/clone?repository-url=https://github.com/last-brain-cell/vite-react-template"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block my-4 hover:underline"
+            variants={itemVariants}
+          >
+            <img
+              src="https://vercel.com/button"
+              alt="Deploy with Vercel"
+              className="h-10"
+            />
+          </motion.a>
+        </div>
 
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 px-4"

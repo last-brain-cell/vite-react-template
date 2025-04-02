@@ -12,8 +12,6 @@ A modern, fast, and beautifully structured SaaS starter built with **Vite**, **R
 
 This project gives you everything you need out of the gate to build robust, scalable, and maintainable SaaS applications. It’s got clean code, essential tools, and a carefully chosen tech stack that gets out of your way so you can build fast.
 
----
-
 ## 🧰 Tech Stack
 
 - ⚡ **[Vite](https://vitejs.dev/)** – Lightning-fast dev server & build tool
@@ -56,6 +54,14 @@ src/
 ---
 
 ## 🚀 Getting Started
+
+---
+
+### ⏱️ Quick Deploy
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/project?template=https://github.com/last-brain-cell/vite-react-template)
+
+---
+### 🏃💨 Quick Start
 
 ```bash
 # 1. Clone the repo
