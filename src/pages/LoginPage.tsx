@@ -1,6 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useNavigate } from "react-router-dom";
+import { motion } from 'framer-motion';
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+};
 
 const LoginPage: React.FC = () => {
   const { user, login } = useAuth();
@@ -22,11 +38,29 @@ const LoginPage: React.FC = () => {
 
   return (
     <div className="min-h-screen min-w-screen flex items-center justify-center bg-gray-100 px-4">
-      <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Login to Your Account</h2>
+      <motion.div
+        className="w-full max-w-md bg-white rounded-lg shadow-md p-8"
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+      >
+        <motion.h2
+          className="text-2xl font-bold mb-6 text-center text-gray-800"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          Login to Your Account
+        </motion.h2>
 
-        <form className="space-y-4" onSubmit={handleSubmit}>
-          <div>
+        <motion.form
+          className="space-y-4"
+          onSubmit={handleSubmit}
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.div variants={itemVariants}>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
             <input
               id="email"
@@ -37,9 +71,9 @@ const LoginPage: React.FC = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div variants={itemVariants}>
             <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
             <input
               id="password"
@@ -50,20 +84,28 @@ const LoginPage: React.FC = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-          </div>
+          </motion.div>
 
-          <button
+          <motion.button
             type="submit"
             className="w-full bg-indigo-600 text-white py-2 rounded-md font-semibold hover:bg-indigo-700 transition"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            variants={itemVariants}
           >
             Log In
-          </button>
-        </form>
+          </motion.button>
+        </motion.form>
 
-        <p className="mt-4 text-center text-sm text-gray-600">
+        <motion.p
+          className="mt-4 text-center text-sm text-gray-600"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.5 }}
+        >
           Don’t have an account? <a href="#" className="text-indigo-600 hover:underline">Sign up</a>
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
     </div>
   );
 };

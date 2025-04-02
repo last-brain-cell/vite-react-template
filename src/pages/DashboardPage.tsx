@@ -1,27 +1,73 @@
 import React from 'react';
 import { useAuth } from '@/contexts/AuthContext';
-import { mockData } from "@/data.ts";
+import { mockData } from '@/data.ts';
+import { motion } from 'framer-motion';
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.07,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const rowVariants = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+};
 
 const DashboardPage: React.FC = () => {
   const { user, logout } = useAuth();
 
   return (
     <div className="min-h-screen min-w-screen bg-gray-100 py-10 px-6">
-      <div className="max-w-6xl mx-auto bg-white shadow-md rounded-lg p-6">
+      <motion.div
+        className="max-w-6xl mx-auto bg-white shadow-md rounded-lg p-6"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-3xl font-bold text-gray-800">Dashboard</h1>
-            <p className="text-gray-500">Welcome back, <strong>{user}</strong>!</p>
+            <motion.h1
+              className="text-3xl font-bold text-gray-800"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              Dashboard
+            </motion.h1>
+            <motion.p
+              className="text-gray-500"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              Welcome back, <strong>{user}</strong>!
+            </motion.p>
           </div>
-          <button
+
+          <motion.button
             onClick={logout}
             className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            initial={{ opacity: 0, x: 10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4 }}
           >
             Log Out
-          </button>
+          </motion.button>
         </div>
 
-        <div className="overflow-x-auto">
+        <motion.div
+          className="overflow-x-auto"
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+        >
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
             <tr>
@@ -33,7 +79,12 @@ const DashboardPage: React.FC = () => {
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
             {mockData.map((user) => (
-              <tr key={user.id}>
+              <motion.tr
+                key={user.id}
+                variants={rowVariants}
+                whileHover={{ scale: 1.005 }}
+                className="transition-all duration-200"
+              >
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{user.id}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{user.name}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{user.email}</td>
@@ -46,12 +97,12 @@ const DashboardPage: React.FC = () => {
                       {user.status}
                     </span>
                 </td>
-              </tr>
+              </motion.tr>
             ))}
             </tbody>
           </table>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };
