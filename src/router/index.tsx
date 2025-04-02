@@ -9,6 +9,7 @@ import ErrorPage from '@/pages/ErrorPage';
 import LoginPage from '@/pages/LoginPage';
 import DashboardPage from "@/pages/DashboardPage.tsx";
 import { AuthProvider } from "@/contexts/AuthContext.tsx";
+import { FullPageSpinner } from "@/components/LoadingSpinner.tsx";
 
 // Lazy imports for code splitting:
 const HomePage = lazy(() => import('../pages/HomePage'));
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: (
-          <Suspense fallback={<div>Loading Home...</div>}>
+          <Suspense fallback={<FullPageSpinner />}>
             <HomePage />
           </Suspense>
         ),
@@ -52,7 +53,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: (
-          <Suspense fallback={<div>Loading Dashboard...</div>}>
+          <Suspense fallback={<FullPageSpinner />}>
             <DashboardPage />
           </Suspense>
         ),
