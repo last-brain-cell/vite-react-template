@@ -22,7 +22,7 @@ const DashboardPage: React.FC = () => {
   const { user, logout } = useAuth();
 
   return (
-    <div className="min-h-screen w-full bg-gray-100 py-10 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen min-h-screen bg-gray-100 py-10 px-4 sm:px-6 lg:px-8">
       <motion.div
         className="w-full max-w-6xl mx-auto bg-white shadow-md rounded-lg p-6 sm:p-8"
         initial={{ opacity: 0, y: 30 }}
