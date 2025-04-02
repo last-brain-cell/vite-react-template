@@ -94,7 +94,7 @@ const HomePage: React.FC = () => {
               <li>🎞 Framer Motion for animations</li>
               <li>🧱 shadcn/ui for building blocks</li>
               <li>💻 tailwind/ui for SaaS components</li>
-              <li>Additionally, I suggest using <a href={"https://ui.aceternity.com/components"}>Aceternity UI</a> for
+              <li>Additionally, I suggest using <a href={"https://ui.aceternity.com/components"}>Aceternity UI</a>
                 if you want to include more eye candy components!
               </li>
             </ul>
