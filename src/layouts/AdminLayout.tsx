@@ -1,11 +1,10 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+import React from "react";
+import { Outlet } from "react-router-dom";
 
 const AdminLayout: React.FC = () => {
   return (
     <div>
-      <nav>
-      </nav>
+      <nav></nav>
       <section>
         <Outlet />
       </section>

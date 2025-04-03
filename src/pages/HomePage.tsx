@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import { Github } from "lucide-react";
 
 const containerVariants = {
@@ -15,7 +15,7 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
 };
 
 const HomePage: React.FC = () => {
@@ -40,8 +40,8 @@ const HomePage: React.FC = () => {
           className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto mt-12"
           variants={itemVariants}
         >
-          The Ultimate SaaS boilerplate to kick off your next project fast — clean architecture, modern stack, and best
-          practices built-in.
+          The Ultimate SaaS boilerplate to kick off your next project fast —
+          clean architecture, modern stack, and best practices built-in.
         </motion.p>
 
         <div className={"flex flex-row justify-center items-center gap-4"}>
@@ -83,18 +83,31 @@ const HomePage: React.FC = () => {
             className="bg-white shadow-md border rounded-xl p-6"
             variants={itemVariants}
           >
-            <h2 className="text-xl font-semibold text-gray-700 mb-4">🔧 Tech Stack</h2>
+            <h2 className="text-xl font-semibold text-gray-700 mb-4">
+              🔧 Tech Stack
+            </h2>
             <ul className="text-gray-600 list-disc list-inside space-y-2 text-left">
               <li>⚡️ Vite for blazing fast dev/build</li>
+
               <li>⚛️ React 19 + TypeScript</li>
               <li>🎨 Tailwind CSS for styling</li>
-              <li>🎯 ESLint + Prettier for clean code</li>
+              <li>
+                🎯 ESLint + Prettier (
+                <a href={"https://prettier.io/docs/editors"}>
+                  Editor Integration
+                </a>
+                ) for clean code
+              </li>
               <li>🧭 React Router (v6)</li>
               <li>🔐 Auth Context (example login flow)</li>
               <li>🎞 Framer Motion for animations</li>
               <li>🧱 shadcn/ui for building blocks</li>
               <li>💻 tailwind/ui for SaaS components</li>
-              <li>Additionally, I suggest using <a href={"https://ui.aceternity.com/components"}>Aceternity UI</a>
+              <li>
+                Additionally, I suggest using{" "}
+                <a href={"https://ui.aceternity.com/components"}>
+                  Aceternity UI
+                </a>{" "}
                 if you want to include more eye candy components!
               </li>
             </ul>
@@ -105,7 +118,9 @@ const HomePage: React.FC = () => {
             className="bg-white shadow-md border rounded-xl p-6"
             variants={itemVariants}
           >
-            <h2 className="text-xl font-semibold text-gray-700 mb-4">🛠 Features</h2>
+            <h2 className="text-xl font-semibold text-gray-700 mb-4">
+              🛠 Features
+            </h2>
             <ul className="text-gray-600 list-disc list-inside space-y-2 text-left">
               <li>Protected routes with AuthContext</li>
               <li>Basic Login/Auth flow</li>
@@ -146,8 +161,9 @@ const HomePage: React.FC = () => {
           className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto mt-4"
           variants={itemVariants}
         >
-          I know this doesn't exactly look "pretty" but its only supposed to be a starting point for your project, sort
-          of a blank canvas with most of your packages pre-installed!
+          I know this doesn't exactly look "pretty" but its only supposed to be
+          a starting point for your project, sort of a blank canvas with most of
+          your packages pre-installed!
         </motion.h2>
       </motion.div>
     </div>

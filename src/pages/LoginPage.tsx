@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useAuth } from '@/contexts/AuthContext';
+import React, { useState, useEffect } from "react";
+import { useAuth } from "@/contexts/AuthContext.tsx";
 import { useNavigate } from "react-router-dom";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const containerVariants = {
   hidden: {},
@@ -15,13 +15,13 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
 };
 
 const LoginPage: React.FC = () => {
   const { user, login } = useAuth();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   function handleSubmit(e: React.FormEvent) {
@@ -31,8 +31,8 @@ const LoginPage: React.FC = () => {
 
   useEffect(() => {
     if (user) {
-      console.log('Logged in as:', user);
-      navigate('/admin');
+      console.log("Logged in as:", user);
+      navigate("/admin");
     }
   }, [user, navigate]);
 
@@ -42,7 +42,7 @@ const LoginPage: React.FC = () => {
         className="w-full max-w-md bg-white rounded-lg shadow-md p-8"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <motion.h2
           className="text-2xl font-bold mb-6 text-center text-gray-800"
@@ -61,7 +61,12 @@ const LoginPage: React.FC = () => {
           animate="show"
         >
           <motion.div variants={itemVariants}>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Email
+            </label>
             <input
               id="email"
               type="email"
@@ -74,7 +79,12 @@ const LoginPage: React.FC = () => {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Password
+            </label>
             <input
               id="password"
               type="password"
@@ -103,7 +113,10 @@ const LoginPage: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.5 }}
         >
-          Don’t have an account? <a href="#" className="text-indigo-600 hover:underline">Sign up</a>
+          Don’t have an account?{" "}
+          <a href="#" className="text-indigo-600 hover:underline">
+            Sign up
+          </a>
         </motion.p>
       </motion.div>
     </div>

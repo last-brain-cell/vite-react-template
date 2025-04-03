@@ -1,4 +1,4 @@
-[//]: # (Absolutely! Here's a polished and developer-friendly **README.md** for your Vite + React + TypeScript SaaS Starter Template:)
+[//]: # "Absolutely! Here's a polished and developer-friendly **README.md** for your Vite + React + TypeScript SaaS Starter Template:"
 
 ---
 
@@ -58,9 +58,11 @@ src/
 ---
 
 ### ⏱️ Quick Deploy
+
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/last-brain-cell/vite-react-template)
 
 ---
+
 ### 🏃💨 Quick Start
 
 ```bash

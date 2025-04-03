@@ -1,7 +1,7 @@
-import React from 'react';
-import { useAuth } from '@/contexts/AuthContext';
-import { mockData } from '@/data.ts';
-import { motion } from 'framer-motion';
+import React from "react";
+import { useAuth } from "@/contexts/AuthContext.tsx";
+import { mockData } from "@/data.ts";
+import { motion } from "framer-motion";
 
 const containerVariants = {
   hidden: {},
@@ -72,37 +72,51 @@ const DashboardPage: React.FC = () => {
         >
           <table className="min-w-full divide-y divide-gray-200 text-sm">
             <thead className="bg-gray-50">
-            <tr>
-              <th className="px-4 sm:px-6 py-3 text-left font-medium text-gray-500 uppercase tracking-wider">ID</th>
-              <th className="px-4 sm:px-6 py-3 text-left font-medium text-gray-500 uppercase tracking-wider">Name</th>
-              <th className="px-4 sm:px-6 py-3 text-left font-medium text-gray-500 uppercase tracking-wider">Email</th>
-              <th className="px-4 sm:px-6 py-3 text-left font-medium text-gray-500 uppercase tracking-wider">Status</th>
-            </tr>
+              <tr>
+                <th className="px-4 sm:px-6 py-3 text-left font-medium text-gray-500 uppercase tracking-wider">
+                  ID
+                </th>
+                <th className="px-4 sm:px-6 py-3 text-left font-medium text-gray-500 uppercase tracking-wider">
+                  Name
+                </th>
+                <th className="px-4 sm:px-6 py-3 text-left font-medium text-gray-500 uppercase tracking-wider">
+                  Email
+                </th>
+                <th className="px-4 sm:px-6 py-3 text-left font-medium text-gray-500 uppercase tracking-wider">
+                  Status
+                </th>
+              </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-            {mockData.map((user) => (
-              <motion.tr
-                key={user.id}
-                variants={rowVariants}
-                whileHover={{ scale: 1.005 }}
-                className="transition-all duration-200"
-              >
-                <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-gray-700">{user.id}</td>
-                <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-gray-700">{user.name}</td>
-                <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-gray-700">{user.email}</td>
-                <td className="px-4 sm:px-6 py-4 whitespace-nowrap">
+              {mockData.map((user) => (
+                <motion.tr
+                  key={user.id}
+                  variants={rowVariants}
+                  whileHover={{ scale: 1.005 }}
+                  className="transition-all duration-200"
+                >
+                  <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-gray-700">
+                    {user.id}
+                  </td>
+                  <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-gray-700">
+                    {user.name}
+                  </td>
+                  <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-gray-700">
+                    {user.email}
+                  </td>
+                  <td className="px-4 sm:px-6 py-4 whitespace-nowrap">
                     <span
                       className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                        user.status === 'Active'
-                          ? 'bg-green-100 text-green-800'
-                          : 'bg-yellow-100 text-yellow-800'
+                        user.status === "Active"
+                          ? "bg-green-100 text-green-800"
+                          : "bg-yellow-100 text-yellow-800"
                       }`}
                     >
                       {user.status}
                     </span>
-                </td>
-              </motion.tr>
-            ))}
+                  </td>
+                </motion.tr>
+              ))}
             </tbody>
           </table>
         </motion.div>

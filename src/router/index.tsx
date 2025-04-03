@@ -1,22 +1,22 @@
-import React, { Suspense, lazy } from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import React, { Suspense, lazy } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import MainLayout from '@/layouts/MainLayout';
-import AdminLayout from '@/layouts/AdminLayout';
-import ProtectedRoute from '@/components/ProtectedRoute';
+import MainLayout from "@/layouts/MainLayout.tsx";
+import AdminLayout from "@/layouts/AdminLayout.tsx";
+import ProtectedRoute from "@/components/ProtectedRoute.tsx";
 
-import ErrorPage from '@/pages/ErrorPage';
-import LoginPage from '@/pages/LoginPage';
+import ErrorPage from "@/pages/ErrorPage.tsx";
+import LoginPage from "@/pages/LoginPage.tsx";
 import DashboardPage from "@/pages/DashboardPage.tsx";
 import { AuthProvider } from "@/contexts/AuthContext.tsx";
 import { FullPageSpinner } from "@/components/LoadingSpinner.tsx";
 
 // Lazy imports for code splitting:
-const HomePage = lazy(() => import('../pages/HomePage'));
+const HomePage = lazy(() => import("../pages/HomePage"));
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <MainLayout />,
     errorElement: <ErrorPage />,
     children: [
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: '/login',
+    path: "/login",
     element: (
       <AuthProvider>
         <LoginPage />
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: '/admin',
+    path: "/admin",
     element: (
       <AuthProvider>
         <ProtectedRoute>
